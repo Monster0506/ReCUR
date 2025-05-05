@@ -35,12 +35,11 @@ class RubricGrader:
     # Public helpers
     # --------------------------------------------------------------------- #
     async def score(self, answer: str, prompt: str) -> float:
-        print("Grading...")
         """Return a numeric score for *answer*."""
         if self.llm is None:  # offline heuristic
             print("Grading with heuristic...")
             return self._heuristic(answer)
-        print("Grading with LLM...")
+        print("Grading")
 
         ask = (
             f"User prompt:\n{prompt}\n\nAnswer to grade:\n{answer}\n\n" f"{self.rubric}"

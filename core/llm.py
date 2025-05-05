@@ -31,9 +31,6 @@ class LLM(ABC):
     async def generate(self, prompt: str, temperature: float = DEFAULT_TEMP) -> str: ...
 
 
-count = 0
-
-
 class GoogleGenaiLLM(LLM):
     """
     Google Gen AI SDK implementation.
@@ -56,22 +53,19 @@ class GoogleGenaiLLM(LLM):
 
         self.client = genai.Client(api_key=api_key)
         self.fragments = fragments
+        if fragments:
+            print(f"Loaded large context of {len(fragments)} fragments")
 
         self.model_name = model
 
     async def generate(self, prompt: str, temperature: float = DEFAULT_TEMP) -> str:
         if self.fragments:
-            print(f"Loaded large context of {len(self.fragments)} fragments")
             prefix = (
                 "\n\nThe user has asked that the following documents be considered:\n\n"
                 "They may or may not be relevant.\n\n"
             )
             prefix += "\n\n".join(f"DOCUMENT FRAGMENT:\n{f}" for f in self.fragments)
             prompt = f"{prefix}\n\nUSER PROMPT:\n{prompt}"
-            global count
-            if count == 0:
-                print(prompt)
-                count += 1
 
         async def _inner() -> str:
             response = self.client.models.generate_content(  # sync → wrap

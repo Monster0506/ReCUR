@@ -190,7 +190,6 @@ def run_cli() -> None:  # pragma: no cover
     # 1. load YAML (default or user‑supplied)
     default_cfg_path = Path(__file__).parent.parent / "config" / "default.yaml"
     yaml_cfg = load_config(args.config or default_cfg_path, overrides=None)
-    print(yaml_cfg)
 
     # 2. build dict of CLI overrides where the user actually typed a value
     cli_overrides = {
@@ -198,11 +197,9 @@ def run_cli() -> None:  # pragma: no cover
         for key, value in vars(args).items()
         if value is not None and key != "config"
     }
-    print(cli_overrides)
 
     # 3. final merged cfg  (YAML first, CLI wins)
     cfg: Dict[str, Any] = {**yaml_cfg, **cli_overrides}
-    print(cfg)
 
     # 4. sanity check
     if "prompt" not in cfg or not cfg["prompt"]:
