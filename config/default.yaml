@@ -19,7 +19,7 @@ timeout_sec: 45 # Per‑call timeout (not yet enforced)
 rubric_file: null # Path to custom rubric text file (null → built‑in)
 
 # ─────────────────────────────────────────────────────────── Logging
-log_level: null # DEBUG | INFO | WARNING | ERROR
+log_level: INFO # DEBUG | INFO | WARNING | ERROR
 logfile: null # Write JSON logs here (null → stderr)
 
 # ─────────────────────────────────────────────────────────── Output artefacts
