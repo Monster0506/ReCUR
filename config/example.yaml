@@ -1,0 +1,30 @@
+# recur_ai full configuration file
+# Every field is optional –– values you omit fall back to these defaults.
+
+# ─────────────────────────────────────────────────────────── Core prompt
+prompt: "" # REQUIRED unless passed on CLI
+
+# ─────────────────────────────────────────────────────────── LLM settings
+model: gemini-2.0-flash-lite # Public ID for Google GenAI Gemini 2 Flash
+temperature: 0.7 # Sampling temperature
+api_key: "" # Optional –– falls back to env var GOOGLE_API_KEY
+echo: false # true → use EchoLLM stub (no API calls)
+
+# ─────────────────────────────────────────────────────────── ReCUR loop
+rounds: null # null → heuristic (1‒3) based on prompt length
+alts: 3 # Number of alternatives generated in parallel
+timeout_sec: 45 # Per‑call timeout (not yet enforced)
+
+# ─────────────────────────────────────────────────────────── Grading
+rubric_file: rubrics/code.txt # Path to custom rubric text file (null → built‑in)
+
+# ─────────────────────────────────────────────────────────── Logging
+log_level: INFO # DEBUG | INFO | WARNING | ERROR
+logfile: debug.log # Write JSON logs here (null → stderr)
+
+# ─────────────────────────────────────────────────────────── Output artefacts
+output_file: final.txt # If set, write ONLY the final answer text here
+audit_json: audit.json # If set, write full chronicle (all answers + scores)
+
+# ─────────────────────────────────────────────────────────── CLI overrides
+# Any CLI flag with the same name (e.g. `--rounds 2`) OVERRIDES the value above.

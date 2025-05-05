@@ -1,0 +1,84 @@
+# .gitignore  – ReCUR project
+
+############################
+#  Runtime & build output  #
+############################
+# Python byte‑code / C‑extensions
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+
+# Editable‑install metadata & wheels / sdists
+*.egg-info/
+*.egg
+dist/
+build/
+
+# uv / pip lockfiles
+uv.lock
+.python-version
+*.lock            # catch stray poetry.lock, Pipfile.lock, etc.
+
+############################
+#  Environments & tooling  #
+############################
+# Virtual‑env directories
+.venv/
+venv/
+env/
+
+# tox & pytest cache
+.tox/
+.pytest_cache/
+
+# Coverage artifacts
+.coverage
+htmlcov/
+coverage.xml
+
+############################
+#  Logs & run artifacts    #
+############################
+*.log
+*.jsonl
+# audit.json
+# final.txt
+# run.jsonl
+debug.log
+
+############################
+#  Secrets & credentials   #
+############################
+.env
+
+############################
+#  IDE / editor cruft      #
+############################
+.vscode/
+.idea/
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+############################
+#  OS generated files      #
+############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+############################
+#  Documentation build     #
+############################
+site/               # mkdocs‑material output
+docs/_build/
+
+############################
+#  Misc                    #
+############################
+# Local YAML or JSON experiments not meant for version control
+*.local.yaml
+*.local.json

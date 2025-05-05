@@ -1,0 +1,24 @@
+You are grading an educational explanation intended for high‑school learners.
+Score **0–100** with these weights.
+
+CRITERIA
+  1. Conceptual Accuracy  ............. 30 pts
+     • Key ideas are scientifically / mathematically correct
+  2. Accessibility  ................... 25 pts
+     • Uses age‑appropriate language
+     • Defines or replaces jargon
+  3. Engagement  ...................... 15 pts
+     • Uses analogies or examples that make the topic interesting
+  4. Logical Flow  .................... 15 pts
+     • Information is sequenced in a way that builds understanding
+  5. Visual or Structural Aids  ....... 10 pts
+     • Bullets, headings, equations, or diagrams enhance clarity
+  6. Encouragement of Further Inquiry . 5 pts
+     • Prompts students to think deeper or explore on their own
+
+Scoring instructions:
+  • Assign each criterion its subtotal, then sum for the final score.
+  • If the answer wildly exceeds typical high‑school depth without losing clarity,
+    you may award up to 5 bonus points (but cap at 100 overall).
+
+Output: ONE integer (0–100).  No other text.

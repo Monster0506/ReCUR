@@ -1,0 +1,46 @@
+[project]
+name = "recur"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "asyncio>=3.4.3",
+    "black>=25.1.0",
+    "coverage>=7.8.0",
+    "google-genai>=1.13.0",
+    "loguru>=0.7.3",
+    "mypy>=1.15.0",
+    "pygame>=2.6.1",
+    "pytest>=8",
+    "pytest-asyncio>=0.26.0",
+    "pyyaml>=6.0.2",
+    "rich>=14.0.0",
+    "ruff>=0.11.8",
+    "types-pyyaml>=6.0.12.20250402",
+]
+
+[project.scripts]
+recur = "recur:main"
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+lint.select = ["E", "F", "B"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+
+
+[tool.setuptools]
+packages = [
+  "agents",
+  "cli",
+  "core",
+  "graders",
+]
+
+py-modules = ["recur"]
