@@ -6,10 +6,10 @@ ReCUR utilizes a **Feedback-Driven Refinement Loop**. A Large-Language-Model (LL
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 | Category                | Capability                                                                                                                   |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --- |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | **Iterative Reasoning** | Base answer → heuristic round counter → N alternatives per round → grading and promotion of the current best → final voting. |
 | **Pluggable LLMs**      | Abstract `LLM` interface defaults to **Google GenAI Gemini‑2 Flash**. Pass `--echo` to dry‑run without network.              |
 | **Custom Rubrics**      | Drop any plain‑text rubric via `--rubric-file` (e.g., coding, general, education).                                           |
@@ -17,12 +17,11 @@ ReCUR utilizes a **Feedback-Driven Refinement Loop**. A Large-Language-Model (LL
 | **Audit Chronicle**     | `--audit-json` captures every base & alt with scores for offline analysis.                                                   |
 | **Async & Concurrent**  | `asyncio` + `gather` generates alternatives in parallel for high throughput.                                                 |
 | **Config Everywhere**   | YAML file, environment variables, **and** CLI flags—merged with CLI precedence.                                              |
-| <!--                    | **Dev Tooling**                                                                                                              | Black, Ruff, Mypy, Pytest (+90 % coverage target) and GitHub Actions CI. | --> |
 | **Extensible Agents**   | Subclass responder, grader, or selector to experiment with new strategies.                                                   |
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 User Prompt
@@ -48,7 +47,7 @@ FinalSelector  (vote)
 
 ---
 
-## 🔧 Installation
+## Installation
 
 ```bash
 # 1. Clone
@@ -56,13 +55,16 @@ $ git clone https://github.com/monster0506/recur.git && cd recur
 
 # 2. Create venv via uv & install project + deps
 $ uv pip install -e .
+
+# 3. Run with uv
+$ uv run recur -p "Explain what sound a cat makes in great detail"
 ```
 
 > **Tip:** `uv` resolves and caches wheels for ultra‑fast, reproducible installs.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Simplest run – default YAML + CLI prompt
@@ -80,7 +82,7 @@ $ uv run recur -p "Design a REST API" \
 
 ---
 
-## 📝 Configuration
+## Configuration
 
 1. **Default file** `config/default.yaml` – copy & edit.
 2. **Environment** – set `GOOGLE_API_KEY` for GenAI.
@@ -93,6 +95,7 @@ $ uv run recur -p "Design a REST API" \
 ```yaml
 prompt: ""
 model: gemini-2.0-flash-001
+api_key: null
 temperature: 0.4
 rounds: null
 alts: 3
